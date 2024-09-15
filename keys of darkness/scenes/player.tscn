@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj6pyfc5qil0d"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_ydpxd"]
+[ext_resource type="PackedScene" uid="uid://tw0i60ufitm3" path="res://models/grabpack_greenhand.glb" id="2_hhuha"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3gou3"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2vw8k"]
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_ydpxd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_3gou3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_2vw8k")
+
+[node name="neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.681563, 0.234096)
+
+[node name="Camera3D" type="Camera3D" parent="neck"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_hhuha")]
+transform = Transform3D(0.284906, 0, 0, 0, 0.284717, 0, 0, 0, 0.321827, 0.389004, 0.157554, -0.499676)
